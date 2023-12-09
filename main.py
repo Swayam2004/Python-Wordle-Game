@@ -42,16 +42,24 @@ def check_word(current_user_word: str, current_random_word: str):
     user_word_list = list(current_user_word)
     random_word_list = list(current_random_word)
 
+    # for i, v in enumerate(user_word_list):
+    #     letter = v.upper()
+    #     user_word_list[i] = letter
+
+    # for i, v in enumerate(random_word_list):
+    #     letter = v.upper()
+    #     random_word_list[i] = letter
+
     for i, _ in enumerate(user_word_list):
         if user_word_list[i] == current_random_word[i]:
-            result_string += f"{style('bold')}{fore('#ffffff')}{back('green')}{user_word_list[i]}{style('reset')}"
+            result_string += f"{style('bold')}{fore('#ffffff')}{back('green')}{user_word_list[i].upper()}{style('reset')}"
             random_word_list.remove(user_word_list[i])
         else:
             if user_word_list[i] in random_word_list:
-                result_string += f"{style('bold')}{fore('#ffffff')}{back('yellow')}{user_word_list[i]}{style('reset')}"
+                result_string += f"{style('bold')}{fore('#ffffff')}{back('yellow')}{user_word_list[i].upper()}{style('reset')}"
                 random_word_list.remove(user_word_list[i])
             else:
-                result_string += f"{style('bold')}{fore('#ffffff')}{back('#000000')}{user_word_list[i]}{style('reset')}"
+                result_string += f"{style('bold')}{fore('#ffffff')}{back('#000000')}{user_word_list[i].upper()}{style('reset')}"
 
     print(f"\n{result_string}")
 
